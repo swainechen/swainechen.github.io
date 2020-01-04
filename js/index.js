@@ -22,10 +22,10 @@ var headingText = document.createTextNode("Follow Us ")
 
 var link = document.createElement("a")
 // Link text in heading
-var linkText = document.createTextNode("@TwitterOSS")
+var linkText = document.createTextNode("@swaine_chen")
 link.appendChild(linkText)
 link.setAttribute("target", "_blank")
-link.setAttribute("href", "https://twitter.com/TwitterOSS")
+link.setAttribute("href", "https://twitter.com/swaine_chen")
 
 heading.appendChild(headingText)
 heading.appendChild(link)
@@ -39,7 +39,7 @@ textCell.appendChild(heading)
 // caption.appendChild(captionText)
 // textCell.appendChild(caption)
 
-var timeline = document.getElementById("open-source-timeline")
+var timeline = document.getElementById("general-timeline")
 var parent = timeline.parentNode
 
 // Media queries
@@ -61,9 +61,9 @@ function lessThan600px(mediaQuery) {
         removeClassById("header-text", "u-size7of8")
 
         // Our Philosophy
-        removeClassById("philosophy-text", "u-size4of6")
-        removeClassById("philosophy-text", "u-before1of6")
-        removeClassById("philosophy-text", "u-after1of6")
+        removeClassById("vision-text", "u-size4of6")
+        removeClassById("vision-text", "u-before1of6")
+        removeClassById("vision-text", "u-after1of6")
 
         // Removing Columns
         removeClassByClass("timeline-cell", "u-size1of2")
@@ -73,7 +73,7 @@ function lessThan600px(mediaQuery) {
         // Timeline Height
         changeHeightByClass("twitter-timeline", "450px")
         
-        // Follow Us @TwitterOSS
+        // Follow Us @swaine_chen
         parent.insertBefore(textCell, timeline)
         removeClassById("open-source-text", "u-size5of12")
         removeClassById("open-source-text", "u-before1of12")
@@ -87,9 +87,9 @@ function lessThan600px(mediaQuery) {
         addClassById("header-text", "u-size7of8")
 
         // Our Philosophy
-        addClassById("philosophy-text", "u-size4of6")
-        addClassById("philosophy-text", "u-before1of6")
-        addClassById("philosophy-text", "u-after1of6")
+        addClassById("vision-text", "u-size4of6")
+        addClassById("vision-text", "u-before1of6")
+        addClassById("vision-text", "u-after1of6")
 
         // Adding Columns
         addClassByClass("timeline-cell", "u-size1of2")
@@ -99,7 +99,7 @@ function lessThan600px(mediaQuery) {
         // Timeline Height
         changeHeightByClass("twitter-timeline", "700px")
 
-        // Follow Us @TwitterOSS
+        // Follow Us @swaine_chen
         parent.insertBefore(textCell, timeline.nextSibling)
         addClassById("open-source-text", "u-size5of12")
         addClassById("open-source-text", "u-before1of12")

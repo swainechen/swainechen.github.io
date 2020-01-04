@@ -93,7 +93,7 @@ img.emoji-img {
 
 /* Explore Projects */
 
-.explore-projects {
+.research {
 	background-image: url("../assets/network.svg");
 	background-repeat: no-repeat;
     background-size: auto 380px;
@@ -101,14 +101,14 @@ img.emoji-img {
 }
 
 /* Empty space for mobile layout of explore projects */
-.explore-projects-blank {
+.research-blank {
 	height: 320px;
 	display: none;
 }
 
 /* Greater than 1400px */
 @media (min-width: 1400px) {
-	.explore-projects {
+	.research {
 		background-position: bottom right;
 	}
 }
@@ -117,49 +117,49 @@ img.emoji-img {
 
 /* Image size slightly smaller between 1050px and 1236px */
 @media (max-width: 1236px) and (min-width: 1050px) {
-	.explore-projects {
+	.research {
 		background-position: bottom right -100px;
 		background-size: auto 350px;
 	}
 }
 
 @media (max-width: 1050px) {
-	.explore-projects {
+	.research {
 		background-position: bottom right -250px;
 	}
 }
 
 @media (max-width: 860px) {
-	.explore-projects {
+	.research {
 		background-position: bottom right -350px;
 	}
 }
 
 @media (max-width: 700px) {
-	.explore-projects {
+	.research {
 		background-position: bottom right -400px;
 	}
 }
 
 /* Empty space now displayed */
 @media (max-width: 600px) {
-	.explore-projects-blank {
+	.research-blank {
 		display: block;
 	}
 
-	.explore-projects {
+	.research {
 		background-position: bottom right -250px;
 	}
 }
 
 @media (max-width: 480px) {
-	.explore-projects {
+	.research {
 		background-position: bottom right -350px;
 	}
 }
 
 @media (max-width: 380px) {
-	.explore-projects {
+	.research {
 		background-position: bottom right -400px;
 	}
 }

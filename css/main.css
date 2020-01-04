@@ -58,7 +58,7 @@ body {
 /* Navigation wrapper */
 
 nav {
-  background-color: var(--tw-color-blue-primary);
+  background-color: var(--evil);
   padding: var(--feather-grid-xsmall);
   width: 100%;
   position: fixed;
@@ -92,7 +92,7 @@ a.home-link:link, a.home-link:visited, .home-text {
 }
 
 a.home-link:hover, a.home-link:active {
-  color: var(--tw-color-blue-faded);
+  color: var(--night);
 }
 
 span.Icon--caretDown {
@@ -118,7 +118,7 @@ a.nav-link:link, a.nav-link:visited {
 }
 
 a.nav-link:hover, a.nav-link:active {
-  color: var(--tw-color-blue-faded);
+  color: var(--night);
 }
 
 .home-link {
@@ -136,7 +136,7 @@ a.nav-link:hover, a.nav-link:active {
 /* Headers */
 
 .header, .footer {
-  background-color: var(--tw-color-blue-primary);
+  background-color: var(--evil);
   color: white;
 }
 
@@ -172,7 +172,7 @@ a.foot-link:link, a.foot-link:visited {
 }
 
 a.foot-link:hover, a.foot-link:active {
-  color: var(--tw-color-blue-faded);
+  color: var(--night);
   text-decoration: none;
 }
 
@@ -284,7 +284,7 @@ br {
   }
 
   span.Icon--caretDown:hover {
-    color: var(--tw-color-blue-faded);
+    color: var(--night);
   }
 
   .nav-menu {
@@ -297,7 +297,7 @@ br {
     line-height: var(--feather-line-height-jumbo);
     padding: var(--feather-grid-medium) 0;
     margin: 0;
-    border-bottom: 1px solid var(--tw-color-blue-faded);
+    border-bottom: 1px solid var(--night);
   }
 
   .list-end {
