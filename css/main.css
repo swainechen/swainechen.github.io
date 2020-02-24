@@ -191,6 +191,11 @@ a.foot-link:hover, a.foot-link:active {
 	margin-bottom: var(--feather-grid-mega);
 }
 
+.mega-side-margin {
+	margin-left: var(--feather-grid-mega);
+	margin-right: var(--feather-grid-mega);
+}
+
 .mega-margin {
 	margin-bottom: var(--feather-grid-mega);
 }
@@ -201,6 +206,11 @@ a.foot-link:hover, a.foot-link:active {
 
 .medium-margin {
 	margin-bottom: var(--feather-grid-medium);
+}
+
+.small-side-margin {
+	margin-left: var(--feather-grid-small);
+	margin-right: var(--feather-grid-small);
 }
 
 .small-margin {

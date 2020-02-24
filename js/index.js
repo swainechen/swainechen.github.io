@@ -87,9 +87,9 @@ function lessThan600px(mediaQuery) {
         addClassById("header-text", "u-size7of8")
 
         // Our Philosophy
-        addClassById("vision-text", "u-size4of6")
-        addClassById("vision-text", "u-before1of6")
-        addClassById("vision-text", "u-after1of6")
+//        addClassById("vision-text", "u-size4of6")
+//        addClassById("vision-text", "u-before1of6")
+//        addClassById("vision-text", "u-after1of6")
 
         // Adding Columns
         addClassByClass("timeline-cell", "u-size1of2")
