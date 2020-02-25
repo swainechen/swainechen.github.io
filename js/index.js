@@ -61,17 +61,17 @@ function lessThan600px(mediaQuery) {
         removeClassById("header-text", "u-size7of8")
 
         // Our Philosophy
-        removeClassById("vision-text", "u-size4of6")
-        removeClassById("vision-text", "u-before1of6")
-        removeClassById("vision-text", "u-after1of6")
+//        removeClassById("vision-text", "u-size4of6")
+//        removeClassById("vision-text", "u-before1of6")
+//        removeClassById("vision-text", "u-after1of6")
 
         // Removing Columns
-        removeClassByClass("timeline-cell", "u-size1of2")
-        removeClassByClass("left-text", "u-size5of12")
-        removeClassByClass("left-text", "u-after1of12")
+//        removeClassByClass("timeline-cell", "u-size1of2")
+//        removeClassByClass("left-text", "u-size5of12")
+//        removeClassByClass("left-text", "u-after1of12")
 
         // Timeline Height
-        changeHeightByClass("twitter-timeline", "450px")
+//        changeHeightByClass("twitter-timeline", "450px")
         
         // Follow Us @swaine_chen
         parent.insertBefore(textCell, timeline)
@@ -80,7 +80,7 @@ function lessThan600px(mediaQuery) {
         addClassById("open-source-text", "center-text")
 
         // Career
-        addClassById("career-text", "center-text")
+//        addClassById("career-text", "center-text")
 
     } else {
         // Header
@@ -92,12 +92,12 @@ function lessThan600px(mediaQuery) {
 //        addClassById("vision-text", "u-after1of6")
 
         // Adding Columns
-        addClassByClass("timeline-cell", "u-size1of2")
-        addClassByClass("left-text", "u-size5of12")
-        addClassByClass("left-text", "u-after1of12")
+//        addClassByClass("timeline-cell", "u-size1of2")
+//        addClassByClass("left-text", "u-size5of12")
+//        addClassByClass("left-text", "u-after1of12")
 
         // Timeline Height
-        changeHeightByClass("twitter-timeline", "700px")
+//        changeHeightByClass("twitter-timeline", "700px")
 
         // Follow Us @swaine_chen
         parent.insertBefore(textCell, timeline.nextSibling)
@@ -106,7 +106,7 @@ function lessThan600px(mediaQuery) {
         removeClassById("open-source-text", "center-text")
 
         // Career
-        removeClassById("career-text", "center-text")
+//        removeClassById("career-text", "center-text")
     }
 }
 
