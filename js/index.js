@@ -71,7 +71,7 @@ function lessThan600px(mediaQuery) {
 //        removeClassByClass("left-text", "u-after1of12")
 
         // Timeline Height
-//        changeHeightByClass("twitter-timeline", "450px")
+        changeHeightByClass("twitter-timeline", "450px")
         
         // Follow Us @swaine_chen
         parent.insertBefore(textCell, timeline)
@@ -97,7 +97,7 @@ function lessThan600px(mediaQuery) {
 //        addClassByClass("left-text", "u-after1of12")
 
         // Timeline Height
-//        changeHeightByClass("twitter-timeline", "700px")
+        changeHeightByClass("twitter-timeline", "700px")
 
         // Follow Us @swaine_chen
         parent.insertBefore(textCell, timeline.nextSibling)
