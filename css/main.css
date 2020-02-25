@@ -217,6 +217,11 @@ a.foot-link:hover, a.foot-link:active {
 	margin-bottom: var(--feather-grid-small);
 }
 
+.xsmall-side-margin {
+	margin-left: var(--feather-grid-xsmall);
+	margin-right: var(--feather-grid-xsmall);
+}
+
 .xsmall-margin {
 	margin-bottom: var(--feather-grid-xsmall);
 }

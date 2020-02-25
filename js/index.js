@@ -110,7 +110,7 @@ function lessThan600px(mediaQuery) {
     }
 }
 
-// Our Philosophy - emoji cards
+// Our Vision - emoji cards
 function lessThan900px(mediaQuery) {
     if (mediaQuery.matches) {
         removeClassByClass("emoji-card", "u-size1of3")
