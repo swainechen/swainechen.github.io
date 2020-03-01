@@ -9,6 +9,15 @@ function changeHeightByClass(target, newHeight) {
     }
 }
 
+function changeWidthByClass(target, newWidth) {
+    var elements = document.getElementsByClassName(target)
+    var i
+    for (i = 0; i < elements.length; i++) {
+        elements[i].setAttribute("width", newWidth)
+        elements[i].style.width = newWidth
+    }
+}
+
 // Creates DOM element for Open Source text on homepage
 
 var textCell = document.createElement('div')
@@ -18,7 +27,7 @@ textCell.id = "open-source-text"
 var heading = document.createElement("h1")
 heading.classList.add("small-title", "mega-margin", "open-source-title")
 // Normal text in heading
-var headingText = document.createTextNode("Follow Us ")
+var headingText = document.createTextNode("Follow on Twitter: ")
 
 var link = document.createElement("a")
 // Link text in heading
@@ -109,17 +118,3 @@ function lessThan600px(mediaQuery) {
 //        removeClassById("career-text", "center-text")
     }
 }
-
-// Our Vision - emoji cards
-function lessThan900px(mediaQuery) {
-    if (mediaQuery.matches) {
-        removeClassByClass("emoji-card", "u-size1of3")
-        addClassByClass("emoji-card", "sizeFull")
-        addClassByClass("emoji-card", "center-margin")
-    } else {
-        addClassByClass("emoji-card", "u-size1of3")
-        removeClassByClass("emoji-card", "sizeFull")
-        removeClassByClass("emoji-card", "center-margin")
-    }
-}
-

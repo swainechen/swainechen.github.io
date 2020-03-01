@@ -104,7 +104,10 @@ img.emoji-img {
 
 img.research-image {
 	display: block;
-	width: calc(var(--feather-grid-page-width) * 0.5);
+/*	width: calc(var(--feather-grid-page-width) * 0.5);  */
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
         height: auto;
 }
 
