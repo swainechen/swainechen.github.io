@@ -52,6 +52,12 @@ function lessThan900px(mediaQuery) {
         removeClassByClass("Paper-card", "u-size2of3")
         addClassByClass("Paper-card", "sizeFull")
         addClassByClass("Paper-card", "center-margin")
+
+        // People
+        removeClassByClass("Person-card", "u-size1of4")
+        removeClassByClass("Person-card", "u-size3of4")
+        removeClassByClass("emoji-img", "large-margin")
+        addClassByClass("Person-card", "sizeFull")
     } else {
         // Vision section
         addClassByClass("emoji-card", "u-size1of3")
