@@ -32,16 +32,16 @@ function lessThan600px(mediaQuery) {
     }
 }
 
-// GBS Figure and legend - emoji cards
+// GBS Figure and legend - img cards
 function lessThan900px(mediaQuery) {
     if (mediaQuery.matches) {
-        removeClassByClass("emoji-card", "u-size1of2")
-        addClassByClass("emoji-card", "sizeFull")
-        addClassByClass("emoji-card", "center-margin")
+        removeClassByClass("img-card", "u-size1of2")
+        addClassByClass("img-card", "sizeFull")
+        addClassByClass("img-card", "center-margin")
     } else {
-        addClassByClass("emoji-card", "u-size1of2")
-        removeClassByClass("emoji-card", "sizeFull")
-        removeClassByClass("emoji-card", "center-margin")
+        addClassByClass("img-card", "u-size1of2")
+        removeClassByClass("img-card", "sizeFull")
+        removeClassByClass("img-card", "center-margin")
     }
 }
 

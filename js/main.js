@@ -28,7 +28,7 @@ function removeClassByClass(target, className) {
 // Create sticky footer by defining min-height of site wrapper
 var site = document.getElementsByClassName("site")[0]
 var footer = document.getElementsByClassName("footer")[0]
-// Year in Review website does not have a footer
+
 if (footer) {
     var footerHeight = footer.clientHeight
     site.style.minHeight = "calc(100vh - " + footerHeight + "px)"
@@ -37,10 +37,6 @@ if (footer) {
 // Create DOM element for navigation bar
 var navBar = document.getElementsByTagName("nav")[0]
 
-// Create DOM element for mobile Twitter Open Source title
-var navTitle = document.getElementsByClassName("home-text")[0]
-
-
 // Media queries
 
 if (matchMedia) {
@@ -48,9 +44,9 @@ if (matchMedia) {
     lessThan650px(mediaQuery650)
     mediaQuery650.addListener(lessThan650px)
 
-    var mediaQuery800 = window.matchMedia("(max-width: 800px)")
-    lessThan800px(mediaQuery800)
-    mediaQuery800.addListener(lessThan800px)
+    var mediaQuery900 = window.matchMedia("(max-width: 900px)")
+    lessThan900px(mediaQuery900)
+    mediaQuery900.addListener(lessThan900px)
 }
 
 // Breakpoint for mobile navigation
@@ -58,7 +54,6 @@ function lessThan650px(mediaQuery) {
     if (mediaQuery.matches) {
         var caret = document.getElementById("caret")
         caret.addEventListener("click", mobileNavigation)
-        navTitle.addEventListener("click", mobileNavigation)
     } else {
         navBar.classList.remove("active")
     }
@@ -74,7 +69,7 @@ function mobileNavigation() {
 }
 
 // Mobile footer
-function lessThan800px(mediaQuery) {
+function lessThan900px(mediaQuery) {
     if (mediaQuery.matches) {
         removeClassByClass("footer-cell", "u-size1of4")
     } else {

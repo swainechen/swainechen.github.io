@@ -18,37 +18,26 @@ function changeWidthByClass(target, newWidth) {
     }
 }
 
-// Creates DOM element for Open Source text on homepage
-
+// Creates DOM element for Twitter follow text/link on home page
+// So we can switch the order when we move to mobile
 var textCell = document.createElement('div')
 textCell.classList.add("Grid-cell", "u-size5of12", "u-before1of12")
-textCell.id = "open-source-text"
-
+textCell.id = "twitter-link"
 var heading = document.createElement("h1")
-heading.classList.add("small-title", "mega-margin", "open-source-title")
+heading.classList.add("small-title", "mega-margin", "twitter-link")
 // Normal text in heading
 var headingText = document.createTextNode("Follow on Twitter: ")
-
 var link = document.createElement("a")
 // Link text in heading
 var linkText = document.createTextNode("@swaine_chen")
 link.appendChild(linkText)
 link.setAttribute("target", "_blank")
 link.setAttribute("href", "https://twitter.com/swaine_chen")
-
 heading.appendChild(headingText)
 heading.appendChild(link)
 textCell.appendChild(heading)
 
-// Optional caption after title
-
-// var caption = document.createElement("p")
-// caption.classList.add("same-mega-margin")
-// var captionText = document.createTextNode("")
-// caption.appendChild(captionText)
-// textCell.appendChild(caption)
-
-var timeline = document.getElementById("general-timeline")
+var timeline = document.getElementById("twitter-timeline")
 var parent = timeline.parentNode
 
 // Media queries
@@ -69,52 +58,27 @@ function lessThan600px(mediaQuery) {
         // Header
         removeClassById("header-text", "u-size7of8")
 
-        // Our Philosophy
-//        removeClassById("vision-text", "u-size4of6")
-//        removeClassById("vision-text", "u-before1of6")
-//        removeClassById("vision-text", "u-after1of6")
-
-        // Removing Columns
-//        removeClassByClass("timeline-cell", "u-size1of2")
-//        removeClassByClass("left-text", "u-size5of12")
-//        removeClassByClass("left-text", "u-after1of12")
-
         // Timeline Height
         changeHeightByClass("twitter-timeline", "450px")
         
         // Follow Us @swaine_chen
         parent.insertBefore(textCell, timeline)
-        removeClassById("open-source-text", "u-size5of12")
-        removeClassById("open-source-text", "u-before1of12")
-        addClassById("open-source-text", "center-text")
-
-        // Career
-//        addClassById("career-text", "center-text")
+        removeClassById("twitter-link", "u-size5of12")
+        removeClassById("twitter-link", "u-before1of12")
+        addClassById("twitter-link", "center-text")
 
     } else {
         // Header
         addClassById("header-text", "u-size7of8")
-
-        // Our Philosophy
-//        addClassById("vision-text", "u-size4of6")
-//        addClassById("vision-text", "u-before1of6")
-//        addClassById("vision-text", "u-after1of6")
-
-        // Adding Columns
-//        addClassByClass("timeline-cell", "u-size1of2")
-//        addClassByClass("left-text", "u-size5of12")
-//        addClassByClass("left-text", "u-after1of12")
 
         // Timeline Height
         changeHeightByClass("twitter-timeline", "700px")
 
         // Follow Us @swaine_chen
         parent.insertBefore(textCell, timeline.nextSibling)
-        addClassById("open-source-text", "u-size5of12")
-        addClassById("open-source-text", "u-before1of12")
-        removeClassById("open-source-text", "center-text")
+        addClassById("twitter-link", "u-size5of12")
+        addClassById("twitter-link", "u-before1of12")
+        removeClassById("twitter-link", "center-text")
 
-        // Career
-//        removeClassById("career-text", "center-text")
     }
 }

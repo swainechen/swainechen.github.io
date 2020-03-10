@@ -29,13 +29,13 @@ function lessThan600px(mediaQuery) {
     }
 }
 
-// Our Vision - emoji cards
+// Our Vision - img-cards
 function lessThan900px(mediaQuery) {
     if (mediaQuery.matches) {
         // Vision section
-        removeClassByClass("emoji-card", "u-size1of3")
-        addClassByClass("emoji-card", "sizeFull")
-        addClassByClass("emoji-card", "center-margin")
+        removeClassByClass("img-card", "u-size1of3")
+        addClassByClass("img-card", "sizeFull")
+        addClassByClass("img-card", "center-margin")
 
         // Research section
         removeClassByClass("Research-card", "u-size5of12")
@@ -49,22 +49,23 @@ function lessThan900px(mediaQuery) {
 
         // Publications
         removeClassByClass("Paper-card", "u-size1of3")
-        removeClassByClass("Paper-card", "u-size2of3")
+        removeClassByClass("Context-card", "u-size2of3")
         addClassByClass("Paper-card", "sizeFull")
         addClassByClass("Paper-card", "center-margin")
+        addClassByClass("Context-card", "sizeFull")
+        addClassByClass("Context-card", "center-margin")
 
         // People
         removeClassByClass("Person-card", "u-size1of4")
-        removeClassByClass("Person-card", "u-size3of4")
-        removeClassByClass("emoji-img", "large-margin")
+        removeClassByClass("Bio-card", "u-size3of4")
+        removeClassByClass("img-card", "large-margin")
         addClassByClass("Person-card", "sizeFull")
+        addClassByClass("Bio-card", "sizeFull")
     } else {
         // Vision section
-        addClassByClass("emoji-card", "u-size1of3")
-        removeClassByClass("emoji-card", "sizeFull")
-        removeClassByClass("emoji-card", "center-margin")
-
-        // Research section
+        addClassByClass("img-card", "u-size1of3")
+        removeClassByClass("img-card", "sizeFull")
+        removeClassByClass("img-card", "center-margin")
     }
 }
 
