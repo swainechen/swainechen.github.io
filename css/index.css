@@ -89,14 +89,22 @@ img.emoji-img {
 
 /* Explore Projects */
 
+img.research-image-index {
+	display: block;
+        width: 90%;
+        margin-left: auto;
+        margin-right: auto;
+        height: auto;
+}
+
 img.research-image {
 	display: block;
-/*	width: calc(var(--feather-grid-page-width) * 0.5);  */
         width: 50%;
         margin-left: auto;
         margin-right: auto;
         height: auto;
 }
+
 img.research-figure {
 	display: block;
         width: 90%;
