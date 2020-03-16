@@ -26,6 +26,12 @@ function lessThan600px(mediaQuery) {
     if (mediaQuery.matches) {
         // Header
         removeClassById("header-text", "u-size7of8")
+
+        // intro
+        removeClassById("publicity-intro", "u-before1of4")
+        removeClassById("publicity-intro", "u-after1of4")
+        removeClassById("publicity-intro", "u-size1of2")
+        addClassById("publicity-intro", "u-sizeFull")
     } else {
         // Header
         addClassById("header-text", "u-size7of8")
