@@ -1,2 +1,3 @@
 User-agent: *
 Crawl-delay: 120
+Sitemap: https://swainechen.github.io/sitemap.xml
