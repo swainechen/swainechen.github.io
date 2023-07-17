@@ -13,16 +13,16 @@
 # you will see them accessed via {{ site.title }}, {{ site.email }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: [Preserved] Chen Lab website
-email: read_page@email_domain.com
+title: "[Preserved] Chen Lab website"
+email: "read_page@email_domain.com"
 description: >- # this means to ignore newlines until "baseurl:"
   Website for the lab of Swaine Chen
   National University of Singapore and Genome Institute of Singapore
   2010-2022
 # baseurl: "/twitter-new" # the subpath of your site, e.g. /blog
 url: "https://swainechen.github.io"
-twitter_username: swaine_chen
-github_username:  swainechen
+twitter_username: "swaine_chen"
+github_username:  "swainechen"
 
 # Build settings
 markdown: kramdown
