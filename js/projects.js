@@ -32,7 +32,7 @@ var renderProjects = function(projectsList, searchString="") {
             // Project Name
             var nameDiv = document.createElement('h1')
             nameDiv.className = "project-name small-margin"
-            nameDiv.innerHTML = project.name
+            nameDiv.textContent = project.name
             projectDiv.appendChild(nameDiv)
 
             // Color-coded border
@@ -44,13 +44,15 @@ var renderProjects = function(projectsList, searchString="") {
             // Project Description (HTML version)
             var descriptionDiv = document.createElement('div')
             descriptionDiv.className = "project-description xsmall-margin"
-            descriptionDiv.innerHTML = project.description
+            // Security: project.descriptionHTML is fetched from GitHub API.
+            // Using innerHTML here to render the HTML provided by GitHub.
+            descriptionDiv.innerHTML = project.descriptionHTML || ""
             projectDiv.appendChild(descriptionDiv)
 
             // Primary Language
             var languageDiv = document.createElement('p')
             languageDiv.className = "project-language"
-            languageDiv.innerHTML = project.primaryLanguage
+            languageDiv.textContent = project.primaryLanguage ? project.primaryLanguage.name : ""
             projectDiv.appendChild(languageDiv)
 
             // Whitespace
@@ -65,7 +67,7 @@ var renderProjects = function(projectsList, searchString="") {
             // GitHub link
             var githubLink = document.createElement('a')
             githubLink.href = getGithubURL(project)
-            githubLink.innerHTML = "GitHub"
+            githubLink.textContent = "GitHub"
             githubLink.target = "_blank"
             githubLink.rel = "noopener noreferrer"
             projectLinksDiv.appendChild(githubLink)
@@ -75,7 +77,7 @@ var renderProjects = function(projectsList, searchString="") {
             if (homepageURL != "") {
                 var websiteLink = document.createElement('a')
                 websiteLink.href = homepageURL
-                websiteLink.innerHTML = "Website"
+                websiteLink.textContent = "Website"
                 websiteLink.target = "_blank"
                 websiteLink.rel = "noopener noreferrer"
                 projectLinksDiv.appendChild(websiteLink)
@@ -85,10 +87,15 @@ var renderProjects = function(projectsList, searchString="") {
 
             // Metrics button
             var metricsButton = document.createElement('button')
-            metricsButton.setAttribute("onclick", "window.open('https://opensource.twitter.com/metrics/" + project.nameWithOwner + "/WEEKLY', '_blank', 'noopener,noreferrer')")
             metricsButton.type = "button"
             metricsButton.className = "Button Button--tertiary"
-            metricsButton.innerHTML = "Metrics"
+            metricsButton.textContent = "Metrics"
+            // Use a closure to capture the current project's name and avoid inline script risks
+            metricsButton.onclick = (function(name) {
+                return function() {
+                    window.open('https://opensource.twitter.com/metrics/' + name + '/WEEKLY', '_blank', 'noopener,noreferrer')
+                }
+            })(project.nameWithOwner)
             projectDiv.appendChild(metricsButton)
 
             /* Finally Add the project card to the page */
@@ -99,7 +106,10 @@ var renderProjects = function(projectsList, searchString="") {
         noResultDiv.className = 'no-results'
 
         var noResultPara = document.createElement('p')
-        noResultPara.innerHTML = "No results for " + '<b>' + searchString + '</b>'
+        noResultPara.textContent = "No results for "
+        var searchStringB = document.createElement('b')
+        searchStringB.textContent = searchString
+        noResultPara.appendChild(searchStringB)
         noResultDiv.appendChild(noResultPara)
 
         var noResultContainer = document.getElementsByClassName("no-results-container")[0]
