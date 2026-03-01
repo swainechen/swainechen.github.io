@@ -67,6 +67,7 @@ var renderProjects = function(projectsList, searchString="") {
             githubLink.href = getGithubURL(project)
             githubLink.innerHTML = "GitHub"
             githubLink.target = "_blank"
+            githubLink.rel = "noopener noreferrer"
             projectLinksDiv.appendChild(githubLink)
 
             // Website link (with clause)
@@ -76,6 +77,7 @@ var renderProjects = function(projectsList, searchString="") {
                 websiteLink.href = homepageURL
                 websiteLink.innerHTML = "Website"
                 websiteLink.target = "_blank"
+                websiteLink.rel = "noopener noreferrer"
                 projectLinksDiv.appendChild(websiteLink)
             }
 
@@ -83,7 +85,7 @@ var renderProjects = function(projectsList, searchString="") {
 
             // Metrics button
             var metricsButton = document.createElement('button')
-            metricsButton.setAttribute("onclick", "window.open('https://opensource.twitter.com/metrics/" + project.nameWithOwner + "/WEEKLY')")
+            metricsButton.setAttribute("onclick", "window.open('https://opensource.twitter.com/metrics/" + project.nameWithOwner + "/WEEKLY', '_blank', 'noopener,noreferrer')")
             metricsButton.type = "button"
             metricsButton.className = "Button Button--tertiary"
             metricsButton.innerHTML = "Metrics"
