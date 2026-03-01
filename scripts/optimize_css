@@ -2,4 +2,4 @@
 set -euo pipefail
 
 # Optimizes all CSS files.
-$(npm bin)/postcss css/feather-* --replace
+npx postcss css/feather-* --replace
