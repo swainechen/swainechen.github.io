@@ -38,15 +38,15 @@ var renderProjects = function(projectsList, searchString="") {
             // Color-coded border
             var colorDiv = document.createElement('div')
             colorDiv.className = "border small-margin"
-            colorDiv.style = "border-bottom-color: " + project.color
+            colorDiv.style.borderBottomColor = project.color
             projectDiv.appendChild(colorDiv)
 
-            // Project Description (HTML version)
+            // Project Description (Safe text version)
             var descriptionDiv = document.createElement('div')
             descriptionDiv.className = "project-description xsmall-margin"
-            // Security: project.descriptionHTML is fetched from GitHub API.
-            // Using innerHTML here to render the HTML provided by GitHub.
-            descriptionDiv.innerHTML = project.descriptionHTML || ""
+            // Security: Extract text from descriptionHTML provided by GitHub API to prevent XSS.
+            var doc = new DOMParser().parseFromString(project.descriptionHTML || "", 'text/html')
+            descriptionDiv.textContent = doc.body.textContent || ""
             projectDiv.appendChild(descriptionDiv)
 
             // Primary Language
@@ -91,11 +91,11 @@ var renderProjects = function(projectsList, searchString="") {
             metricsButton.className = "Button Button--tertiary"
             metricsButton.textContent = "Metrics"
             // Use a closure to capture the current project's name and avoid inline script risks
-            metricsButton.onclick = (function(name) {
+            metricsButton.addEventListener('click', (function(name) {
                 return function() {
                     window.open('https://opensource.twitter.com/metrics/' + name + '/WEEKLY', '_blank', 'noopener,noreferrer')
                 }
-            })(project.nameWithOwner)
+            })(project.nameWithOwner))
             projectDiv.appendChild(metricsButton)
 
             /* Finally Add the project card to the page */
