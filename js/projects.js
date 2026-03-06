@@ -41,13 +41,14 @@ var renderProjects = function(projectsList, searchString="") {
             colorDiv.style.borderBottomColor = project.color
             projectDiv.appendChild(colorDiv)
 
-            // Project Description (HTML version)
+            // Project Description
             var descriptionDiv = document.createElement('div')
             descriptionDiv.className = "project-description xsmall-margin"
             // Security: project.descriptionHTML is fetched from GitHub API.
-            // Use DOMParser to safely extract text content and avoid XSS from potentially malicious HTML.
-            var parsedDescription = new DOMParser().parseFromString(project.descriptionHTML || "", 'text/html')
-            descriptionDiv.textContent = parsedDescription.body.textContent || ""
+            // Use DOMParser to safely extract text content and mitigate XSS risks.
+            var descriptionHTML = project.descriptionHTML || ""
+            var doc = new DOMParser().parseFromString(descriptionHTML, 'text/html')
+            descriptionDiv.textContent = doc.body.textContent || ""
             projectDiv.appendChild(descriptionDiv)
 
             // Primary Language
@@ -86,14 +87,18 @@ var renderProjects = function(projectsList, searchString="") {
 
             projectDiv.appendChild(projectLinksDiv)
 
-            // Metrics link
-            var metricsLink = document.createElement('a')
-            metricsLink.className = "Button Button--tertiary"
-            metricsLink.textContent = "Metrics"
-            metricsLink.href = 'https://opensource.twitter.com/metrics/' + project.nameWithOwner + '/WEEKLY'
-            metricsLink.target = "_blank"
-            metricsLink.rel = "noopener noreferrer"
-            projectDiv.appendChild(metricsLink)
+            // Metrics button
+            var metricsButton = document.createElement('button')
+            metricsButton.type = "button"
+            metricsButton.className = "Button Button--tertiary"
+            metricsButton.textContent = "Metrics"
+            // Use addEventListener to capture the current project's name and avoid inline script risks
+            metricsButton.addEventListener('click', (function(name) {
+                return function() {
+                    window.open('https://opensource.twitter.com/metrics/' + name + '/WEEKLY', '_blank', 'noopener,noreferrer')
+                }
+            })(project.nameWithOwner))
+            projectDiv.appendChild(metricsButton)
 
             /* Finally Add the project card to the page */
             mainDiv.appendChild(projectDiv)
