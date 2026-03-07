@@ -17,7 +17,7 @@ import os
 import requests
 
 
-API_ENDPOINT = "http://newtwitter.augurlabs.io/api/unstable"
+API_ENDPOINT = "https://newtwitter.augurlabs.io/api/unstable"
 PATH_TO_METRICS_DATA = "_data"
 DATESTAMP = datetime.datetime.now().date().isoformat()
 
