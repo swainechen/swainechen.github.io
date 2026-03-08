@@ -17,3 +17,8 @@
 **Vulnerability:** Use of insecure `http://` for API endpoints in build scripts and potential for data-driven links to point to insecure URLs, exposing users to man-in-the-middle (MITM) attacks.
 **Learning:** While most hardcoded links may be secure, external data and build scripts are often overlooked and can introduce insecure transport paths. A global `upgrade-insecure-requests` CSP provides an effective safety net.
 **Prevention:** Always use `https://` for API endpoints and external links. Implement `upgrade-insecure-requests` Content-Security-Policy to automatically upgrade any remaining insecure requests in the browser.
+
+## 2025-05-16 - Defense in Depth: Hardening Headers and Third-Party Content
+**Vulnerability:** Potential for sensitive information leakage via the `Referer` header and exploitation of unrestricted third-party iframes or legacy plugins.
+**Learning:** Even if the site is static, browsers can leak navigation details to external sites. Unrestricted iframes can also perform unwanted actions if the embedded content is compromised.
+**Prevention:** Implement a `strict-origin-when-cross-origin` Referrer-Policy and enhance CSP with `object-src 'none'` and `base-uri 'self'`. Always use the `sandbox` attribute for third-party iframes to apply the principle of least privilege.
