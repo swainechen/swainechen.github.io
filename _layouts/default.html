@@ -14,9 +14,11 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- Security Enhancement: Content Security Policy to upgrade insecure requests and restrict object/base-uri -->
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; object-src 'none'; base-uri 'self';">
+    <!-- Security Enhancement: Automatically upgrade all insecure (HTTP) requests to secure (HTTPS) -->
+    <!-- Content-Security-Policy includes upgrade-insecure-requests, object-src 'none' to prevent plugin-based attacks, and base-uri 'self' to restrict <base> tag. -->
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; object-src 'none'; base-uri 'self'">
 
+    <!-- Referrer Policy: strict-origin-when-cross-origin protects user privacy and prevents leaking sensitive information in Referer headers. -->
     <meta name="referrer" content="strict-origin-when-cross-origin">
 
     <meta http-equiv='Expires' content='0'>

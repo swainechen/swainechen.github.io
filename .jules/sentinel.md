@@ -17,3 +17,8 @@
 **Vulnerability:** Use of insecure `http://` for API endpoints in build scripts and potential for data-driven links to point to insecure URLs, exposing users to man-in-the-middle (MITM) attacks.
 **Learning:** While most hardcoded links may be secure, external data and build scripts are often overlooked and can introduce insecure transport paths. A global `upgrade-insecure-requests` CSP provides an effective safety net.
 **Prevention:** Always use `https://` for API endpoints and external links. Implement `upgrade-insecure-requests` Content-Security-Policy to automatically upgrade any remaining insecure requests in the browser.
+
+## 2026-03-09 - Hardening Site-Wide Headers and Third-Party Embeds
+**Vulnerability:** Lack of restricted sandboxing for third-party iframes and missing/ineffective Referrer Policy, potentially exposing user privacy or allowing unauthorized iframe actions.
+**Learning:** Standardizing security headers in the global layout ensures defense-in-depth across all pages. Specifically, the Referrer Policy meta tag must use the exact name `referrer` to be recognized by browsers. Sandboxing iframes with specific flags allows content to function while preventing it from escaping the sandbox or performing unintended top-level navigations.
+**Prevention:** Implement `object-src 'none'` and `base-uri 'self'` in CSP globally. Always use `<meta name="referrer" ...>` for Referrer Policy. Harden all third-party embeds with `sandbox` attributes using the minimum required permissions.
