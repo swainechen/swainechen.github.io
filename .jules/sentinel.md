@@ -18,7 +18,7 @@
 **Learning:** While most hardcoded links may be secure, external data and build scripts are often overlooked and can introduce insecure transport paths. A global `upgrade-insecure-requests` CSP provides an effective safety net.
 **Prevention:** Always use `https://` for API endpoints and external links. Implement `upgrade-insecure-requests` Content-Security-Policy to automatically upgrade any remaining insecure requests in the browser.
 
-## 2025-05-16 - Defense in Depth: Hardening Headers and Third-Party Content
-**Vulnerability:** Potential for sensitive information leakage via the `Referer` header and exploitation of unrestricted third-party iframes or legacy plugins.
-**Learning:** Even if the site is static, browsers can leak navigation details to external sites. Unrestricted iframes can also perform unwanted actions if the embedded content is compromised.
-**Prevention:** Implement a `strict-origin-when-cross-origin` Referrer-Policy and enhance CSP with `object-src 'none'` and `base-uri 'self'`. Always use the `sandbox` attribute for third-party iframes to apply the principle of least privilege.
+## 2026-03-09 - Hardening Site-Wide Headers and Third-Party Embeds
+**Vulnerability:** Lack of restricted sandboxing for third-party iframes and missing/ineffective Referrer Policy, potentially exposing user privacy or allowing unauthorized iframe actions.
+**Learning:** Standardizing security headers in the global layout ensures defense-in-depth across all pages. Specifically, the Referrer Policy meta tag must use the exact name `referrer` to be recognized by browsers. Sandboxing iframes with specific flags allows content to function while preventing it from escaping the sandbox or performing unintended top-level navigations.
+**Prevention:** Implement `object-src 'none'` and `base-uri 'self'` in CSP globally. Always use `<meta name="referrer" ...>` for Referrer Policy. Harden all third-party embeds with `sandbox` attributes using the minimum required permissions.
