@@ -15,7 +15,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Security Enhancement: Automatically upgrade all insecure (HTTP) requests to secure (HTTPS) -->
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <!-- Content-Security-Policy: Upgrade insecure requests, disable legacy objects, and restrict base URI -->
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; object-src 'none'; base-uri 'self'">
+
+    <!-- Referrer-Policy: Protect user privacy by restricting the information sent in the Referer header -->
+    <meta name="referrer" content="strict-origin-when-cross-origin">
 
     <meta http-equiv='Expires' content='0'>
     <meta http-equiv='Pragma' content='no-cache'>
