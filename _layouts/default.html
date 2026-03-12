@@ -3,20 +3,21 @@
 <html>
   <head>
     <meta charset="utf-8" />
-    <meta name="title" content="{{ page.title }}">
-    <meta name="description" content="{{ page.description }}">
-    <meta name="keywords" content="{{ page.keywords }}">
+    <meta name="title" content="{{ page.title | escape }}">
+    <meta name="description" content="{{ page.description | escape }}">
+    <meta name="keywords" content="{{ page.keywords | escape }}">
 
-    <meta name="og:title" content="{{ page.title }}">
-    <meta name="og:url" content="{{ page.url }}">
-    <!-- <meta name="og:image" content="{{ page.logo }}"> -->
-    <meta name="og:description" content="{{ page.description }}">
+    <meta name="og:title" content="{{ page.title | escape }}">
+    <meta name="og:url" content="{{ page.url | escape }}">
+    <!-- <meta name="og:image" content="{{ page.logo | escape }}"> -->
+    <meta name="og:description" content="{{ page.description | escape }}">
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!-- Security Enhancement: Automatically upgrade all insecure (HTTP) requests to secure (HTTPS) -->
     <!-- Content-Security-Policy includes upgrade-insecure-requests, object-src 'none' to prevent plugin-based attacks, and base-uri 'self' to restrict <base> tag. -->
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; object-src 'none'; base-uri 'self'">
+    <!-- img-src 'self' data: https: restricts image sources to trusted origins and enforces secure transport. -->
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; object-src 'none'; base-uri 'self'; img-src 'self' data: https:;">
 
     <!-- Referrer Policy: strict-origin-when-cross-origin protects user privacy and prevents leaking sensitive information in Referer headers. -->
     <meta name="referrer" content="strict-origin-when-cross-origin">
@@ -26,7 +27,7 @@
     <meta http-equiv='Cache-Control' content='no-cache'>
     <meta http-equiv='imagetoolbar' content='no'>
 
-    <title>{{ page.title }}</title>
+    <title>{{ page.title | escape }}</title>
     <link rel="shortcut icon" type="image/png" href="{{ site.baseurl }}/assets/favicon.ico"/>
 
     <!-- Feather CSS -->

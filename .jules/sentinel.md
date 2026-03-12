@@ -22,3 +22,8 @@
 **Vulnerability:** Lack of restricted sandboxing for third-party iframes and missing/ineffective Referrer Policy, potentially exposing user privacy or allowing unauthorized iframe actions.
 **Learning:** Standardizing security headers in the global layout ensures defense-in-depth across all pages. Specifically, the Referrer Policy meta tag must use the exact name `referrer` to be recognized by browsers. Sandboxing iframes with specific flags allows content to function while preventing it from escaping the sandbox or performing unintended top-level navigations.
 **Prevention:** Implement `object-src 'none'` and `base-uri 'self'` in CSP globally. Always use `<meta name="referrer" ...>` for Referrer Policy. Harden all third-party embeds with `sandbox` attributes using the minimum required permissions.
+
+## 2025-05-16 - Strengthening Defense in Depth with CSP and XSS Prevention
+**Vulnerability:** Potential for XSS due to unescaped Liquid variables in the main layout and an overly permissive image policy.
+**Learning:** Even static sites can be vulnerable to injection if page-level metadata (like titles and descriptions) is not properly escaped when rendered into HTML. Furthermore, a loose CSP for images can be a vector for data exfiltration or UI redressing.
+**Prevention:** Always use the `| escape` filter for Liquid variables in layouts. Harden the Content Security Policy by adding `img-src 'self' data: https:;` to restrict image sources and ensure secure transport. Ensure HTML attributes like `href` are always quoted to prevent parsing inconsistencies.
