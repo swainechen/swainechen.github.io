@@ -27,3 +27,8 @@
 **Vulnerability:** Potential for XSS due to unescaped Liquid variables in the main layout and an overly permissive image policy.
 **Learning:** Even static sites can be vulnerable to injection if page-level metadata (like titles and descriptions) is not properly escaped when rendered into HTML. Furthermore, a loose CSP for images can be a vector for data exfiltration or UI redressing.
 **Prevention:** Always use the `| escape` filter for Liquid variables in layouts. Harden the Content Security Policy by adding `img-src 'self' data: https:;` to restrict image sources and ensure secure transport. Ensure HTML attributes like `href` are always quoted to prevent parsing inconsistencies.
+
+## 2025-05-17 - Site-Wide Defense-in-Depth and HTML Integrity
+**Vulnerability:** Loose global security policy and inconsistent HTML integrity (unquoted attributes and malformed tags) which could lead to unpredictable DOM parsing and increased attack surface for injection.
+**Learning:** Static sites often accumulate technical debt in HTML structure (e.g., `<p>` tags used as separators rather than containers) and lack modern browser protections. A restrictive `default-src 'self'` CSP provides a robust safety net against third-party script injection, while fixing HTML syntax ensures consistent application of security attributes like `rel="noopener noreferrer"`.
+**Prevention:** Implement a restrictive `default-src 'self'` CSP and whitelist only necessary third-party domains. Maintain HTML integrity by quoting all attributes and ensuring correct tag nesting to prevent browser "quirks mode" or parsing exploits.
