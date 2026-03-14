@@ -17,7 +17,7 @@
     <!-- Security Enhancement: Automatically upgrade all insecure (HTTP) requests to secure (HTTPS) -->
     <!-- Content-Security-Policy includes upgrade-insecure-requests, object-src 'none' to prevent plugin-based attacks, and base-uri 'self' to restrict <base> tag. -->
     <!-- img-src 'self' data: https: restricts image sources to trusted origins and enforces secure transport. -->
-    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests; object-src 'none'; base-uri 'self'; img-src 'self' data: https:;">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; upgrade-insecure-requests; object-src 'none'; base-uri 'self'; img-src 'self' data: https:; script-src 'self' https://platform.twitter.com; style-src 'self' 'unsafe-inline'; frame-src https://www.youtube.com https://www.mewatch.sg https://platform.twitter.com;">
 
     <!-- Referrer Policy: strict-origin-when-cross-origin protects user privacy and prevents leaking sensitive information in Referer headers. -->
     <meta name="referrer" content="strict-origin-when-cross-origin">
