@@ -72,6 +72,11 @@
 	right: calc(var(--feather-grid-mega) * 1.5);
 }
 
+.virulence-header {
+	font-size: 40px;
+	font-family: 'Droid Serif', serif;
+}
+
 
 /* Search Bar */
 .search-bar {
