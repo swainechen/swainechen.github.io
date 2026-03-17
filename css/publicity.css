@@ -143,3 +143,9 @@ input:focus {
 	}
 }
 
+.virulence-header {
+	height: 180px;
+	font-size: 40px;
+	font-family: 'Droid Serif', serif;
+	text-align: center;
+}

@@ -124,6 +124,10 @@ img.research-figure {
 }
 
 /* Publications styles */
+.italic {
+	font-style: italic;
+}
+
 .Paper-card {
   font-size: small;
 }
