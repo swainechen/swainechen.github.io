@@ -149,3 +149,7 @@ input:focus {
 	font-family: 'Droid Serif', serif;
 	text-align: center;
 }
+
+.fixed-height {
+	height: 180px;
+}
