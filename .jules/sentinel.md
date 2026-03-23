@@ -32,3 +32,8 @@
 **Vulnerability:** Loose global security policy and inconsistent HTML integrity (unquoted attributes and malformed tags) which could lead to unpredictable DOM parsing and increased attack surface for injection.
 **Learning:** Static sites often accumulate technical debt in HTML structure (e.g., `<p>` tags used as separators rather than containers) and lack modern browser protections. A restrictive `default-src 'self'` CSP provides a robust safety net against third-party script injection, while fixing HTML syntax ensures consistent application of security attributes like `rel="noopener noreferrer"`.
 **Prevention:** Implement a restrictive `default-src 'self'` CSP and whitelist only necessary third-party domains. Maintain HTML integrity by quoting all attributes and ensuring correct tag nesting to prevent browser "quirks mode" or parsing exploits.
+
+## 2024-05-24 - Strengthening CSP with Domain Whitelisting and HTML Refactoring
+**Vulnerability:** Overly permissive `img-src https:` in CSP allowed images from any secure origin, and malformed HTML (e.g., `<div>` nested in `<p>`) led to unpredictable DOM parsing.
+**Learning:** Broad CSP directives like `https:` for images increase the attack surface for UI redressing or data exfiltration via image-based side channels. Furthermore, invalid HTML structures can cause browsers to "fix" the DOM in ways that might bypass security assumptions or break layout consistency.
+**Prevention:** Tighten CSP `img-src` to a specific whitelist of trusted third-party domains. Ensure strict HTML validity by using proper container elements (like `<div>` for block-level content) and replacing deprecated tags and attributes with semantic CSS.
