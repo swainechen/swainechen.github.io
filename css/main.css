@@ -226,6 +226,16 @@ a.foot-link:hover, a.foot-link:active {
 	margin-bottom: var(--feather-grid-xsmall);
 }
 
+.fixed-height {
+  height: 180px;
+}
+
+.half-width {
+  width: 40%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* Text */
 
 body {
