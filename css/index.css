@@ -137,3 +137,9 @@ img.research-figure {
 img.PubMed-icon {
   width: 20px;
 }
+
+.half-width {
+	width: 40%;
+	margin-left: auto;
+	margin-right: auto;
+}
