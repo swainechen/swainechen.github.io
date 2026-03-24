@@ -32,3 +32,8 @@
 **Vulnerability:** Loose global security policy and inconsistent HTML integrity (unquoted attributes and malformed tags) which could lead to unpredictable DOM parsing and increased attack surface for injection.
 **Learning:** Static sites often accumulate technical debt in HTML structure (e.g., `<p>` tags used as separators rather than containers) and lack modern browser protections. A restrictive `default-src 'self'` CSP provides a robust safety net against third-party script injection, while fixing HTML syntax ensures consistent application of security attributes like `rel="noopener noreferrer"`.
 **Prevention:** Implement a restrictive `default-src 'self'` CSP and whitelist only necessary third-party domains. Maintain HTML integrity by quoting all attributes and ensuring correct tag nesting to prevent browser "quirks mode" or parsing exploits.
+
+## 2026-03-10 - Refactoring Malformed HTML and Deprecated Tags for Defense-in-Depth
+**Vulnerability:** Malformed HTML (e.g., `<div>` nested in `<p>`, `<p>` nested in `<h3>`) and the use of deprecated tags/attributes (e.g., `<center>`, `align="center"`) created unpredictable DOM parsing and increased the technical debt of security-critical templates.
+**Learning:** Inconsistent HTML structure can lead to "quirks mode" or unexpected browser parsing behaviors that may bypass security attributes or lead to injection vulnerabilities. Refactoring to modern, semantic HTML ensures that security-related attributes (like `sandbox` on iframes and `rel="noopener noreferrer"` on links) are consistently applied and parsed.
+**Prevention:** Maintain strict HTML integrity by avoiding invalid nesting and replacing deprecated tags and attributes with semantic elements and centralized CSS classes.
