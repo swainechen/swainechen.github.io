@@ -233,8 +233,12 @@ body {
 	line-height: var(--feather-line-height-large);
 }
 
-.center-text {
+.center-text, .center-align {
 	text-align: center;
+}
+
+.fixed-height {
+	height: 180px;
 }
 
 .small-title {
