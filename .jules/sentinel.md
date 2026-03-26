@@ -41,3 +41,8 @@
 **Vulnerability:** Malformed HTML (e.g., `<div>` nested in `<p>`, `<p>` nested in `<h3>`) and the use of deprecated tags/attributes (e.g., `<center>`, `align="center"`) created unpredictable DOM parsing and increased the technical debt of security-critical templates.
 **Learning:** Inconsistent HTML structure can lead to "quirks mode" or unexpected browser parsing behaviors that may bypass security attributes or lead to injection vulnerabilities. Refactoring to modern, semantic HTML ensures that security-related attributes (like `sandbox` on iframes and `rel="noopener noreferrer"` on links) are consistently applied and parsed.
 **Prevention:** Maintain strict HTML integrity by avoiding invalid nesting and replacing deprecated tags and attributes with semantic elements and centralized CSS classes.
+
+## 2026-03-11 - Hardening Third-Party Scripts and HTML Integrity
+**Vulnerability:** Third-party scripts (Twitter widgets) missing `crossorigin` attribute and malformed HTML (nested empty `<p>` tags) which could lead to credential leaking and unpredictable DOM parsing.
+**Learning:** Even well-known third-party scripts should be fetched securely using `crossorigin="anonymous"` to protect user privacy. Furthermore, inconsistent HTML patterns like `<p><p>` increase the risk of parsing-related vulnerabilities and should be refactored into semantic structures.
+**Prevention:** Always include `crossorigin="anonymous"` for third-party script tags. Maintain strict HTML validity by using proper paragraph blocks and avoiding invalid tag sequences to ensure a robust defense-in-depth posture.
