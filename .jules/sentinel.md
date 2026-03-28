@@ -46,3 +46,8 @@
 **Vulnerability:** Third-party scripts (Twitter widgets) missing `crossorigin` attribute and malformed HTML (nested empty `<p>` tags) which could lead to credential leaking and unpredictable DOM parsing.
 **Learning:** Even well-known third-party scripts should be fetched securely using `crossorigin="anonymous"` to protect user privacy. Furthermore, inconsistent HTML patterns like `<p><p>` increase the risk of parsing-related vulnerabilities and should be refactored into semantic structures.
 **Prevention:** Always include `crossorigin="anonymous"` for third-party script tags. Maintain strict HTML validity by using proper paragraph blocks and avoiding invalid tag sequences to ensure a robust defense-in-depth posture.
+
+## 2026-03-28 - Mitigation of Resource Exhaustion in Build Pipeline
+**Vulnerability:** External API requests in Python build scripts were missing timeouts, potentially allowing the build process to hang indefinitely if a service became unresponsive.
+**Learning:** Default behavior for the `requests` library in Python is to wait indefinitely for a response, which can block CI/CD pipelines and consume resources.
+**Prevention:** Always specify a `timeout` parameter for all network requests in automation and build scripts to ensure they fail gracefully and don't stall the pipeline.
