@@ -99,7 +99,8 @@ for repo in PROJECTS_TRACKED['projects']['twitter']:
 
   # hits endpoint using specific repo_ids
   print(f"Sending request to {API_ENDPOINT}/repo-groups/twitter/repos/{repo_id}/code-changes")
-  r = requests.get(f"{API_ENDPOINT}/repo-groups/twitter/repos/{repo_id}/code-changes")
+  # Security Enhancement: Added timeout to prevent the build from hanging indefinitely
+  r = requests.get(f"{API_ENDPOINT}/repo-groups/twitter/repos/{repo_id}/code-changes", timeout=10)
   try:
     if r.ok:
       print("OK!")

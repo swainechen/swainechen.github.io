@@ -22,7 +22,8 @@ def fetch_one_page(query_string, variables):
     headers = {
         "Content-Type": "application/json",
     }
-    r = requests.post(GITHUB_API_ENDPOINT, json={"query": query_string, "variables": variables}, auth=(GITHUB_USERNAME, GITHUB_OAUTH_TOKEN))
+    # Security Enhancement: Added timeout to prevent the build from hanging indefinitely
+    r = requests.post(GITHUB_API_ENDPOINT, json={"query": query_string, "variables": variables}, auth=(GITHUB_USERNAME, GITHUB_OAUTH_TOKEN), timeout=30)
     if r.status_code == 200:
         return r.json()
     else:
