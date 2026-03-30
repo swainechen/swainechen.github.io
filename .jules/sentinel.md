@@ -3,6 +3,11 @@
 **Learning:** This vulnerability was present in static HTML templates, dynamically created DOM elements in JavaScript, and even in `window.open` calls.
 **Prevention:** Always include `rel="noopener noreferrer"` (or `noopener,noreferrer` in `window.open` features) for any link that opens in a new tab.
 
+## 2026-04-10 - Hardening Iframe Sandboxing and CSP Directives
+**Vulnerability:** Third-party iframes in `publicity.html` used the `allow-popups-to-escape-sandbox` attribute, which could allow malicious content to open unsandboxed windows. Global CSP was also missing explicit directives for fonts, media, and manifests.
+**Learning:** Even when using `sandbox`, inclusive flags like `allow-popups-to-escape-sandbox` can undermine the isolation by allowing external content to bypass sandbox restrictions in new windows. Refined CSP directives like `font-src`, `media-src`, and `manifest-src` provide a more granular defense-in-depth posture.
+**Prevention:** Avoid `allow-popups-to-escape-sandbox` unless absolutely necessary. Maintain a comprehensive CSP that explicitly defines policies for all resource types, including `font-src`, `media-src`, and `manifest-src`.
+
 ## 2026-03-04 - Defense in Depth: Hardening against XSS and Inline Scripts
 **Vulnerability:** Potential XSS from external HTML data injected via `innerHTML` and security risks from inline `onclick` handlers.
 **Learning:** Using `innerHTML` for data from external APIs (like GitHub) is dangerous. Even if the source is currently trusted, it's a point of failure. Inline `onclick` handlers violate CSP best practices and are less maintainable than semantic `<a>` tags or `addEventListener`.
