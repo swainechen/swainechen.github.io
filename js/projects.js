@@ -76,7 +76,7 @@ var renderProjects = function(projectsList, searchString="") {
 
             // Website link (with clause)
             var homepageURL = getHomepageURL(project)
-            if (homepageURL != "") {
+            if (homepageURL != "" && (homepageURL.startsWith("http://") || homepageURL.startsWith("https://"))) {
                 var websiteLink = document.createElement('a')
                 websiteLink.href = homepageURL
                 websiteLink.textContent = "Website"
@@ -95,7 +95,8 @@ var renderProjects = function(projectsList, searchString="") {
             // Use addEventListener to capture the current project's name and avoid inline script risks
             metricsButton.addEventListener('click', (function(name) {
                 return function() {
-                    window.open('https://opensource.twitter.com/metrics/' + name + '/WEEKLY', '_blank', 'noopener,noreferrer')
+                    // Security: Encode URI component to prevent malicious injection in the URL path
+                    window.open('https://opensource.twitter.com/metrics/' + encodeURIComponent(name) + '/WEEKLY', '_blank', 'noopener,noreferrer')
                 }
             })(project.nameWithOwner))
             projectDiv.appendChild(metricsButton)
