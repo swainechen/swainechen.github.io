@@ -47,6 +47,11 @@
 **Learning:** Inconsistent HTML structure can lead to "quirks mode" or unexpected browser parsing behaviors that may bypass security attributes or lead to injection vulnerabilities. Refactoring to modern, semantic HTML ensures that security-related attributes (like `sandbox` on iframes and `rel="noopener noreferrer"` on links) are consistently applied and parsed.
 **Prevention:** Maintain strict HTML integrity by avoiding invalid nesting and replacing deprecated tags and attributes with semantic elements and centralized CSS classes.
 
+## 2026-04-01 - CORS Hazards with Third-Party Media Images
+**Vulnerability:** Attempted to add `crossorigin="anonymous"` to third-party images in `publicity.html` as a security enhancement.
+**Learning:** Most third-party media sites (e.g., Straits Times, CNA) do not send `Access-Control-Allow-Origin` headers for images. Adding `crossorigin` forces a CORS request, which causes the browser to block the image if the header is missing, resulting in broken UI.
+**Prevention:** Avoid adding `crossorigin` to `<img>` tags for third-party resources unless the server is known to support CORS and the image data needs to be accessed by scripts (e.g., via Canvas).
+
 ## 2026-03-11 - Hardening Third-Party Scripts and HTML Integrity
 **Vulnerability:** Third-party scripts (Twitter widgets) missing `crossorigin` attribute and malformed HTML (nested empty `<p>` tags) which could lead to credential leaking and unpredictable DOM parsing.
 **Learning:** Even well-known third-party scripts should be fetched securely using `crossorigin="anonymous"` to protect user privacy. Furthermore, inconsistent HTML patterns like `<p><p>` increase the risk of parsing-related vulnerabilities and should be refactored into semantic structures.
