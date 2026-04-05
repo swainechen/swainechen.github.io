@@ -32,8 +32,9 @@ if os.path.exists(aggregate_summary_json_file):
 
 # the repo_group_id for Twitter org is 25155
 print(f"Sending request to {API_ENDPOINT}/repo-groups/25155/aggregate-summary")
-# Security Enhancement: Added timeout to prevent the build from hanging indefinitely
-r = requests.get(f"{API_ENDPOINT}/repo-groups/25155/aggregate-summary", timeout=10)
+# Security Enhancement: Include User-Agent and added timeout to prevent the build from hanging indefinitely
+headers = {"User-Agent": "swainechen-lab-website-build-script"}
+r = requests.get(f"{API_ENDPOINT}/repo-groups/25155/aggregate-summary", headers=headers, timeout=10)
 try:
   if r.ok:
     print("OK!")
