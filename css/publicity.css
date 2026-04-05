@@ -152,4 +152,7 @@ input:focus {
 
 .fixed-height {
 	height: 180px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 }
