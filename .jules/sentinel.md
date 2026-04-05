@@ -61,3 +61,8 @@
 **Vulnerability:** External API requests in Python build scripts were missing timeouts, potentially allowing the build process to hang indefinitely if a service became unresponsive.
 **Learning:** Default behavior for the `requests` library in Python is to wait indefinitely for a response, which can block CI/CD pipelines and consume resources.
 **Prevention:** Always specify a `timeout` parameter for all network requests in automation and build scripts to ensure they fail gracefully and don't stall the pipeline.
+
+## 2026-04-12 - Standardizing External API Communication in Build Scripts
+**Vulnerability:** External API requests in Python build scripts used legacy authentication methods (Basic Auth) and lacked identifying `User-Agent` headers, which can lead to request rejection or auditing difficulties.
+**Learning:** Modern APIs (like GitHub's GraphQL) prefer Bearer token authentication over Basic Auth. Additionally, including a descriptive `User-Agent` is a requirement for many APIs and aids in troubleshooting and security monitoring.
+**Prevention:** For all external API communication in build and automation scripts, use modern authentication headers (e.g., `Authorization: Bearer <token>`) and always include a project-specific `User-Agent` string.

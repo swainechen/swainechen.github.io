@@ -19,11 +19,14 @@ def fetch_one_page(query_string, variables):
     """
     Request the GitHub GraphQL API
     """
+    # Security: Use Bearer token for Authorization and include a User-Agent header
     headers = {
         "Content-Type": "application/json",
+        "Authorization": "Bearer {}".format(GITHUB_OAUTH_TOKEN),
+        "User-Agent": "swainechen-lab-website-build-script"
     }
     # Security Enhancement: Added timeout to prevent the build from hanging indefinitely
-    r = requests.post(GITHUB_API_ENDPOINT, json={"query": query_string, "variables": variables}, auth=(GITHUB_USERNAME, GITHUB_OAUTH_TOKEN), timeout=30)
+    r = requests.post(GITHUB_API_ENDPOINT, json={"query": query_string, "variables": variables}, headers=headers, timeout=30)
     if r.status_code == 200:
         return r.json()
     else:
