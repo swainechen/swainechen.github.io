@@ -57,6 +57,11 @@
 **Learning:** Even well-known third-party scripts should be fetched securely using `crossorigin="anonymous"` to protect user privacy. Furthermore, inconsistent HTML patterns like `<p><p>` increase the risk of parsing-related vulnerabilities and should be refactored into semantic structures.
 **Prevention:** Always include `crossorigin="anonymous"` for third-party script tags. Maintain strict HTML validity by using proper paragraph blocks and avoiding invalid tag sequences to ensure a robust defense-in-depth posture.
 
+## 2026-05-20 - Tightening CSP and Maintaining HTML Tag Integrity
+**Vulnerability:** Overly permissive Content Security Policy (CSP) including unused third-party domains, and malformed HTML tag nesting (`<b><i>...</b></i>`) which can lead to unpredictable DOM parsing.
+**Learning:** Maintaining an allowlist of only strictly necessary domains in the CSP follows the principle of least privilege and reduces the potential for unauthorized resource loading. Similarly, strict adherence to HTML tag nesting rules ensures consistent browser behavior and reduces the attack surface for parsing-related exploits.
+**Prevention:** Regularly audit CSP directives to remove unused domains. Use linting tools or manual reviews to ensure all HTML tags are correctly nested and closed.
+
 ## 2026-03-28 - Mitigation of Resource Exhaustion in Build Pipeline
 **Vulnerability:** External API requests in Python build scripts were missing timeouts, potentially allowing the build process to hang indefinitely if a service became unresponsive.
 **Learning:** Default behavior for the `requests` library in Python is to wait indefinitely for a response, which can block CI/CD pipelines and consume resources.
