@@ -71,3 +71,8 @@
 **Vulnerability:** External API requests in Python build scripts used legacy authentication methods (Basic Auth) and lacked identifying `User-Agent` headers, which can lead to request rejection or auditing difficulties.
 **Learning:** Modern APIs (like GitHub's GraphQL) prefer Bearer token authentication over Basic Auth. Additionally, including a descriptive `User-Agent` is a requirement for many APIs and aids in troubleshooting and security monitoring.
 **Prevention:** For all external API communication in build and automation scripts, use modern authentication headers (e.g., `Authorization: Bearer <token>`) and always include a project-specific `User-Agent` string.
+
+## 2026-05-21 - Hardening Third-Party Twitter Widgets for CSP and Privacy
+**Vulnerability:** Third-party Twitter widgets often rely on inline styles and scripts, which can conflict with strict Content Security Policies. Additionally, they may track users across the web by default, impacting privacy.
+**Learning:** Twitter's `widgets.js` supports specific meta tags (`twitter:widgets:csp` and `twitter:widgets:dnt`) and data attributes (`data-widgets-csp` and `data-dnt`) to enable a CSP-compatible mode and respect user 'Do Not Track' preferences.
+**Prevention:** For all pages embedding Twitter widgets, implement global security and privacy settings using `<meta name="twitter:widgets:csp" content="on">` and `<meta name="twitter:widgets:dnt" content="on">` in the head, and use corresponding data attributes on individual widget elements for defense-in-depth.
