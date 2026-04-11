@@ -76,3 +76,8 @@
 **Vulnerability:** Third-party Twitter widgets often rely on inline styles and scripts, which can conflict with strict Content Security Policies. Additionally, they may track users across the web by default, impacting privacy.
 **Learning:** Twitter's `widgets.js` supports specific meta tags (`twitter:widgets:csp` and `twitter:widgets:dnt`) and data attributes (`data-widgets-csp` and `data-dnt`) to enable a CSP-compatible mode and respect user 'Do Not Track' preferences.
 **Prevention:** For all pages embedding Twitter widgets, implement global security and privacy settings using `<meta name="twitter:widgets:csp" content="on">` and `<meta name="twitter:widgets:dnt" content="on">` in the head, and use corresponding data attributes on individual widget elements for defense-in-depth.
+
+## 2025-05-22 - Defense-in-Depth with CSP Attribute Directives
+**Vulnerability:** Potential for XSS or CSS injection via inline attributes (e.g., `onclick`, `style`) if source-level restrictions are accidentally loosened.
+**Learning:** CSP Level 3 introduces `script-src-attr` and `style-src-attr` which allow for more granular control over attributes compared to the global `script-src` and `style-src` directives. Explicitly setting these to `'none'` ensures that even if a policy is modified to allow some inline content (e.g., via nonces), attribute-based injections remain blocked.
+**Prevention:** Use `script-src-attr 'none'` and `style-src-attr 'none'` in Content Security Policy (CSP) to explicitly disable inline event handlers and inline style attributes globally.
