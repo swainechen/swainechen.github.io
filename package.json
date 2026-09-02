@@ -6,7 +6,7 @@
     "build:css": "./scripts/optimize_css; ./scripts/clean_feather_css"
   },
   "devDependencies": {
-    "browserslist": ">=4.16.5",
+    "browserslist": ">=4.28.8",
     "color-string": ">=1.5.5",
     "cssnano": "^7.1.2",
     "dot-prop": ">=5.1.1",
